@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digestive Symptoms</title>
+    <style>
+  body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f7ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #0077b6;
+            margin-bottom: 20px;
+        }
+
+        form {
+            text-align: left;
+        }
+
+        .checkbox-group {
+            margin: 10px 0;
+        }
+
+        .checkbox-group label {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .checkbox-group input {
+            margin-right: 10px;
+        }
+
+        .submit-button, .back-button {
+            background-color: #0077b6;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .submit-button:hover, .back-button:hover {
+            background-color: #005f8e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Neuro Symptoms</h1>
+        <form id="symptom-form">
+		<div class="checkbox-group"><input type="checkbox" value="dizziness"> Dizziness</div>
+		<div class="checkbox-group"><input type="checkbox" value="slurred_speech"> Slurred Speech</div>
+		<div class="checkbox-group"><input type="checkbox" value="loss_of_balance"> Loss of Balance</div>
+		<div class="checkbox-group"><input type="checkbox" value="weakness_of_one_body_side"> Weakness of One Body Side</div>
+		<div class="checkbox-group"><input type="checkbox" value="spinning_movements"> Spinning Movements</div>
+		<div class="checkbox-group"><input type="checkbox" value="depression"> Depression</div>
+		<div class="checkbox-group"><input type="checkbox" value="irritability"> Irritability</div>
+		<div class="checkbox-group"><input type="checkbox" value="headache"> Headache</div>
+		<div class="checkbox-group"><input type="checkbox" value="altered_sensorium"> Altered Sensorium</div>
+
+		<button type="button" class="submit-button" onclick="handleSubmit()">Submit</button>
+           	<button type="button" class="back-button" onclick="goBack()">Go Back</button>
+	
+        </form>
+    </div>
+    <script>
+        let selectedSymptoms = JSON.parse(localStorage.getItem('selectedSymptoms')) || [];
+        function handleSubmit() {
+            document.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
+                if (!selectedSymptoms.includes(cb.value)) selectedSymptoms.push(cb.value);
+            });
+            localStorage.setItem('selectedSymptoms', JSON.stringify(selectedSymptoms));
+            alert('Symptoms Saved! You can proceed to other types.');
+        }
+        function goBack() {
+            window.location.href = 'main.html';
+        }
+    </script>
+</body>
+</html>

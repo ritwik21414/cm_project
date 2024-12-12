@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symptom Categories</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f7ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #0077b6;
+            margin-bottom: 20px;
+        }
+
+        .button-group button {
+            background-color: #0077b6;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            margin: 10px 0;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .button-group button:hover {
+            background-color: #005f8e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Select Symptom Type</h1>
+        <div class="button-group">
+            <button onclick="openSymptomPage('skin')">Skin-Related Symptoms</button>
+            <button onclick="openSymptomPage('digestive')">Digestive Symptoms</button>
+            <button onclick="openSymptomPage('urinary')">Urinary and Renal Symptoms</button>
+            <button onclick="openSymptomPage('neuro')">Neurological Symptoms</button>
+            <button onclick="openSymptomPage('respiratory')">Respiratory Symptoms</button>
+            <button onclick="openSymptomPage('eye')">Eye-Related Symptoms</button>
+            <button onclick="openSymptomPage('hormonal')">Hormonal and Endocrine Symptoms</button>
+            <button onclick="openSymptomPage('reproductive')">Reproductive and Menstrual Symptoms</button>
+            <button onclick="openSymptomPage('rare')">Rare/Specific Symptoms</button>
+	    <button onclick="openSymptomPage('cm')">Go Back</button>
+        </div>
+    </div>
+
+    <script>
+        function openSymptomPage(type) {
+            // Redirect to the respective symptom page
+            window.location.href = `${type}.html`;
+        }
+    </script>
+</body>
+</html>

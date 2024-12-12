@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digestive Symptoms</title>
+    <style>
+  body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f7ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #0077b6;
+            margin-bottom: 20px;
+        }
+
+        form {
+            text-align: left;
+        }
+
+        .checkbox-group {
+            margin: 10px 0;
+        }
+
+        .checkbox-group label {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .checkbox-group input {
+            margin-right: 10px;
+        }
+
+        .submit-button, .back-button {
+            background-color: #0077b6;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .submit-button:hover, .back-button:hover {
+            background-color: #005f8e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Urinary and renal Symptoms</h1>
+        <form id="symptom-form">
+		<div class="checkbox-group"><input type="checkbox" value="burning_micturition"> Burning Micturition</div>
+		<div class="checkbox-group"><input type="checkbox" value="spotting_urination"> Spotting in Urination</div>
+		<div class="checkbox-group"><input type="checkbox" value="yellow_urine"> Yellow Urine</div>
+		<div class="checkbox-group"><input type="checkbox" value="dark_urine"> Dark Urine</div>
+		<div class="checkbox-group"><input type="checkbox" value="foul_smell_of_urine"> Foul Smell of Urine</div>
+		<div class="checkbox-group"><input type="checkbox" value="continuous_feel_of_urine"> Continuous Feel of Urine</div>
+		<div class="checkbox-group"><input type="checkbox" value="bladder_discomfort"> Bladder Discomfort</div>
+		<button type="button" class="submit-button" onclick="handleSubmit()">Submit</button>
+           	<button type="button" class="back-button" onclick="goBack()">Go Back</button>
+	
+        </form>
+    </div>
+    <script>
+        let selectedSymptoms = JSON.parse(localStorage.getItem('selectedSymptoms')) || [];
+        function handleSubmit() {
+            document.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
+                if (!selectedSymptoms.includes(cb.value)) selectedSymptoms.push(cb.value);
+            });
+            localStorage.setItem('selectedSymptoms', JSON.stringify(selectedSymptoms));
+            alert('Symptoms Saved! You can proceed to other types.');
+        }
+        function goBack() {
+            window.location.href = 'main.html';
+        }
+    </script>
+</body>
+</html>
